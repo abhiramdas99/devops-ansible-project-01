@@ -1,0 +1,17 @@
+
+# THIS YAML FILE EXECUTE A SHELL SCRIPT IN TWO SLAVE MACHINE
+
+---
+- name: task for assgin2 on slave1
+  hosts: slave1
+  become: true
+  tasks:
+  - name: running a script on slave1
+    script: assign2.sh
+
+- name: task for assgin2 on slave2
+  hosts: slave2
+  become: true
+  tasks:
+  - name: running a script on slave1
+    script: assign2.sh
