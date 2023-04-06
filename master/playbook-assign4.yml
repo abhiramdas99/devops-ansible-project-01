@@ -1,0 +1,20 @@
+#######################################################
+#PLAYBOOK FOR CHANGE THE INDEX.HTML CONTENT IN SLAVE1
+# AND SLAVE ACCORDING OUR REQUIREMENT
+#######################################################
+
+---
+- name: Task For Slave1
+  hosts: slave1
+  become: true
+  tasks:
+  - name: change the index file in apache2
+    copy: src=/home/ubuntu/assign4/index.html dest=/var/www/html/index.html
+
+- name: Task For Slave2
+  hosts: slave2
+  become: true
+  tasks:
+  - name: change the index file in nginx
+    copy: src=/home/ubuntu/assign4/index.html dest=/var/www/html/index.html
+
