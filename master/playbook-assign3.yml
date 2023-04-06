@@ -1,0 +1,19 @@
+# ####################################################
+# THIS PLAY-BOOK FOR INSTALL THE APACHE2 IN SLAVE 1
+# AND NGINX IN SALVE 2
+# ###################################################
+
+---
+- name: Task For Slave1
+  hosts: slave1
+  become: true
+  tasks:
+  - name: apache2 install on slave1
+    apt: name=apache2 state=latest
+
+- name: Task For Slave2
+  hosts: slave2
+  become: true
+  tasks:
+  - name: nginx install on slave2
+    apt: name=nginx state=latest
