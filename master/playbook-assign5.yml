@@ -1,0 +1,19 @@
+######################################################
+# PLAYBOOK USE INSTALL JAVA IN TEST (GROUP ) NODE
+# AND INSTALL MYSQL SERVER IN PROD NODE
+# ####################################################
+
+---
+- name: Task for all  host within Test Environment
+  hosts: test
+  become: true
+  tasks:
+  - name: install java
+    apt: name=openjdk-11-jdk state=latest
+
+- name: Task for all  host within Prod Environment
+  hosts: prod
+  become: true
+  tasks:
+  - name: install mysqlserver
+    apt: name=mysql-server state=latest
